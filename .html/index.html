@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO List</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Taskfy</h1>
+        <div id="clock">
+            <!-- Relógio será exibido aqui -->
+        </div> 
+    </header>
+    <hr>
+
+    <div class="addBar">
+        <input type="text" id="inputTask">
+        <select id="prioritySelect">
+            <option value="low">Baixa</option>
+            <option value="medium">Média</option>
+            <option value="high">Alta</option>
+        </select>
+        <button type="button" id="addBtn">Adicionar</button>
+    </div>
+
+    <h2>Tarefas</h2>
+
+    <div class="taskSection">
+        <!-- Tarefas aparecerão aqui -->
+
+    </div>
+
+        <!-- Estrutura do Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <p>Tem certeza que deseja marcar esta tarefa como completa?</p>
+            <button id="confirmBtn">Sim</button>
+            <button id="cancelBtn">Não</button>
+        </div>
+    </div>
+
+    <div id="editConfirmModal" class="modal">
+        <div class="modal-content">
+            <h2>Confirmar Edição</h2>
+            <p>Você deseja salvar as alterações?</p>
+            <button id="saveEditBtn">Salvar</button>
+            <button id="cancelEditBtn">Cancelar</button>
+        </div>
+    </div>
+    
+
+    
+    <script src="../js/script.js"></script>
+</body>
+</html>

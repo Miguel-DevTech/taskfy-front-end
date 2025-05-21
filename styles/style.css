@@ -1,0 +1,337 @@
+/* Variáveis CSS para cores e tamanhos */
+:root {
+    --primary-color: #016801;
+    --medium-color: rgb(150, 97, 0);
+    --high-color: #76000a;
+    --background-color: rgb(112, 0, 150);
+    --text-color: #fff;
+    --btn-hover-bg: yellow;
+    --btn-hover-text: black;
+    --card-background: #f9f9f9;
+    --completed-opacity: 0.7;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    --btn-color: #6c63ff; /* Cor dos botões */
+    --btn-remove-color: #e63946;
+    --btn-edit-color: #ffc107;
+    --hover-opacity: 0.9;
+}
+
+/* Reset de margens e paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    background: linear-gradient(90deg, rgba(112, 0, 150, 1) 0%, rgba(80, 0, 214, 1) 39%, rgba(194, 0, 255, 1) 100%);
+    color: var(--text-color);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: larger;
+}
+
+/* Estilos do Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    font-weight: 100;
+}
+
+hr {
+    box-shadow: var(--card-shadow);
+    color: black;
+}
+
+h2 {
+    padding: 20px;
+}
+
+/* Estilo do relógio */
+#clock {
+    background: none;
+    color: black;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: var(--card-shadow);
+    transition: 0.4s ease;
+}
+
+#clock:hover,
+#clock:focus {
+    transform: scale(1.05); /* Leve aumento */
+    opacity: var(--hover-opacity);
+}
+
+/* Estilo da barra de adição */
+.addBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px; /* Espaçamento consistente */
+}
+
+/* Estilo do input */
+input {
+    background: rgba(255, 255, 255, 0.2); /* Fundo semi-transparente */
+    color: white;
+    border: none;
+    width: 40%;
+    height: 32px;
+    border-radius: 20px;
+    font-size: medium;
+    text-align: center;
+    backdrop-filter: blur(20px); /* Efeito de desfoque */
+    -webkit-backdrop-filter: blur(20px); /* Compatibilidade com WebKit (Safari, etc.) */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras para efeito "flutuante" */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Bordas semi-transparentes */
+    transition: background 0.3s ease, box-shadow 0.3s ease; /* Suavização ao focar */
+    transition: 0.6s;
+}
+
+input:focus {
+    background: rgba(255, 255, 255, 0.3); /* Mudança no fundo ao focar */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Aumenta a sombra ao focar */
+    outline: none; /* Remove o outline padrão */
+    border: none;
+}
+
+/* Estilo do seletor de prioridade */
+#prioritySelect {
+    background: rgba(255, 255, 255, 0.2); /* Fundo semi-transparente */
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+    backdrop-filter: blur(20px); /* Efeito de desfoque */
+    -webkit-backdrop-filter: blur(20px); /* Compatibilidade com WebKit (Safari, etc.) */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras para efeito "flutuante" */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Bordas semi-transparentes */
+}
+
+/* Estilo do botão de adição */
+#addBtn {
+    box-shadow: var(--card-shadow);
+    background: none;
+    border-radius: 20px;
+    font-size: large;
+    border: none;
+    color: rgb(0, 0, 0);
+    width: 10%;
+    height: 35px;
+    transition: background-color 0.3s ease; /* Suavização */
+    transition: 0.6s;
+}
+
+#addBtn:hover,
+#addBtn:focus {
+    color: var(--card-background);
+    transform: scale(1.05); /* Leve aumento */
+    opacity: var(--hover-opacity);
+    cursor: pointer;
+}
+
+/* Estilo da seção de tarefas */
+.taskSection {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens se ajustem em várias linhas */
+    justify-content: space-between; /* Distribui os cards com menos espaço entre eles */
+    gap: 10px; /* Ajuste o gap para controlar o espaçamento entre os cards */
+    padding: 20px;
+}
+
+/* Estilo do item de tarefa */
+.task-item {
+    background: none;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 30%; /* Mantém a largura de 30% */
+    max-width: 300px; /* Limita a largura máxima dos cards */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease;
+    margin-bottom: 10px; /* Adiciona um pequeno espaçamento vertical */
+}
+
+/* Estilos de prioridade */
+.task-item.low {
+    border-left: 15px solid green;
+}
+
+.task-item.medium {
+    border-left: 15px solid orange;
+}
+
+.task-item.high {
+    border-left: 15px solid red;
+    color: white;
+}
+
+/* Efeito hover no card */
+.task-item:hover {
+    transform: scale(1.05); /* Leve aumento */
+    opacity: var(--hover-opacity);
+}
+
+/* Flexibilidade de layout interno */
+.task-item span {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+/* Estilo dos botões */
+.complete-btn,
+.remove-btn,
+.edit-btn {
+    background-color: var(--btn-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0;
+    width: 100%;
+    transition: background-color 0.3s ease; /* Transição suave para todos os botões */
+}
+
+.remove-btn {
+    background-color: var(--btn-color);
+}
+
+.edit-btn {
+    background-color: var(--btn-edit-color);
+    color: black;
+}
+
+/* Efeitos de hover nos botões */
+.complete-btn:hover,
+.complete-btn:focus {
+    background-color: #a6ff00;
+    color: black;
+}
+
+.remove-btn:hover,
+.remove-btn:focus {
+    background-color: #e63946;
+}
+
+.edit-btn:hover,
+.edit-btn:focus {
+    background-color: #fbff00; /* Amarelo mais claro */
+}
+
+/* Tarefa completa */
+.task-item.completed {
+    background: none;
+    color: white;
+    text-decoration: line-through;
+    opacity: var(--completed-opacity);
+}
+
+/* Estilo do modal */
+.modal {
+    display: none; /* Oculta o modal inicialmente */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: flex; /* Mostra o modal */
+    opacity: 1; /* Faz o modal aparecer suavemente */
+}
+
+/* Estilo do conteúdo do modal */
+.modal-content {
+    background-color: #fff;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%; /* Largura responsiva */
+    max-width: 400px; /* Largura máxima */
+}
+
+/* Estilo dos botões do modal */
+#confirmBtn,
+#cancelBtn,
+#saveEditBtn,
+#cancelEditBtn {
+    background-color: var(--btn-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease; /* Suavização ao passar o mouse */
+}
+
+#confirmBtn:hover,
+#cancelBtn:hover,
+#saveEditBtn:hover,
+#cancelEditBtn:hover {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-text);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    /* Ajustes em telas menores */
+    .task-item {
+        margin: 0 auto;
+        margin-top: 2rem;
+        width: 100%; /* Toma 100% da largura em telas pequenas */
+    }
+
+    .addBar {
+        flex-direction: column; /* Muda a direção para coluna */
+    }
+
+    #prioritySelect {
+        width: 90%;
+        text-align: center;
+    }
+
+    input {
+        width: 90%; /* Ajusta a largura do input */
+    }
+
+    #addBtn {
+        width: 90%; /* Botão de adicionar ocupa toda a largura */
+    }
+
+    .task-item {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes em telas menores */
+    header {
+        flex-direction: column; /* Muda a direção do header para coluna */
+    }
+
+    h2 {
+        text-align: center;
+    }
+}
