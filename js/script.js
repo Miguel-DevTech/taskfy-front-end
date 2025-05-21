@@ -25,7 +25,7 @@ async function addTask() {
 
     if (inputValue !== "") {
         try {
-        const response = await fetch("http://localhost:3000/tasks", {
+        const response = await fetch("https://taskfy-back-end.onrender.com/tasks", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ text: inputValue, priority: priorityValue })
@@ -85,7 +85,7 @@ function appendTaskToDOM(task) {
 
 async function deleteTask(id, taskItem) {
     try {
-        await fetch(`http://localhost:3000/tasks/${id}`, { method: "DELETE" });
+        await fetch(`https://taskfy-back-end.onrender.com/tasks/${id}`, { method: "DELETE" });
         taskItem.classList.add("removed");
         setTimeout(() => taskItem.remove(), 500);
     } catch (err) {
@@ -116,7 +116,7 @@ saveEditBtn.addEventListener("click", async () => {
         const taskId = taskItemToEdit.dataset.id;
 
         try {
-        await fetch(`http://localhost:3000/tasks/${taskId}`, {
+        await fetch(`https://taskfy-back-end.onrender.com/tasks/${taskId}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ text: newText })
@@ -136,7 +136,7 @@ confirmBtn.addEventListener("click", async () => {
         const taskId = taskItemToComplete.dataset.id;
 
         try {
-        await fetch(`http://localhost:3000/tasks/${taskId}`, {
+        await fetch(`https://taskfy-back-end.onrender.com/tasks/${taskId}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ done: true })
@@ -185,7 +185,7 @@ updateClock();
 // Carrega tarefas do back-end
 async function loadTasksFromAPI() {
     try {
-        const response = await fetch("http://localhost:3000/tasks");
+        const response = await fetch("https://taskfy-back-end.onrender.com/tasks");
         const tasks = await response.json();
         taskSection.innerHTML = ""; // limpa antes de recarregar
         tasks.forEach(task => appendTaskToDOM(task));
